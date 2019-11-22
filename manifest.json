@@ -1,0 +1,47 @@
+{
+	"manifest_version": 2,
+	"name": "HWBuying",
+	"version": "1.0",
+	"description": "华为商城自动化下单脚本",
+	"author": "hushowly@foxmail.com",
+	"icons":
+	{
+		"48": "icon.png",
+		"128": "icon.png"
+	},
+	"browser_action": 
+	{
+		"default_icon": "icon.png",
+		"default_popup": "popup.html"
+	},
+	"content_scripts": 
+	[
+		{
+			"matches": ["https://www.vmall.com/product/*"],
+			"js": ["js/content-script1.js"],
+			"run_at": "document_start"
+		},
+		{
+			"matches": ["https://sale.vmall.com/rush/*"],
+			"js": ["js/content-script2.js"],
+			"run_at": "document_start"
+		},
+		{
+			"matches": ["https://buy.vmall.com/submit_order.html*"],
+			"js": ["js/content-script3.js"],
+			"run_at": "document_start"
+		}
+	],
+	"web_accessible_resources": 
+	[
+		"js/inject1.js",
+		"js/inject2.js",
+		"js/inject3.js"
+	],
+	"permissions":
+	[
+		"webRequest",
+		"webRequestBlocking",
+		"tabs"
+	]
+}
